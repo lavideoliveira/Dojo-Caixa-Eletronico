@@ -12,8 +12,14 @@ public class CaixaEletronicotest {
 		
 	}*/
 	@Test
-	public void testSaque(){
-		int valor = CaixaEletronico.Saque(30);
+	public void testSaque30(){
+		int valor = CaixaEletronico.Saque30(30);
 		assertEquals(30,valor);
+	}
+	
+	@Test
+	public void testSaque80(){
+		boolean valor = CaixaEletronico.Saque80(80);
+		assertEquals(true, valor);
 	}
 }
