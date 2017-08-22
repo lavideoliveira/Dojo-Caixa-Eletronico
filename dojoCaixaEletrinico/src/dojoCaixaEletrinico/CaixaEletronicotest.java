@@ -6,20 +6,24 @@ import org.junit.Test;
 
 public class CaixaEletronicotest {
 
-	/*@Test
-	public void testSaquePossivel() {
-		int valor = CaixaEletronico.saquePossivel(100, 50, 20, 10);
-		
-	}*/
 	@Test
-	public void testSaque30(){
-		int valor = CaixaEletronico.Saque30(30);
-		assertEquals(30,valor);
+	public void testSaquePossivel2() {
+		boolean resultadoTeste = CaixaEletronico.Saque(2);
+		assertEquals(false, resultadoTeste);
+		
 	}
 	
 	@Test
-	public void testSaque80(){
-		boolean valor = CaixaEletronico.Saque80(80);
-		assertEquals(true, valor);
+	public void testSaquePossivel10() {
+		boolean resultadoTeste = CaixaEletronico.Saque(10);
+		assertEquals(true, resultadoTeste);
+		
+	}
+	
+	@Test
+	public void testSaquePossivel555() {
+		boolean resultadoTeste = CaixaEletronico.Saque(555);
+		assertEquals(false, resultadoTeste);
+		
 	}
 }
