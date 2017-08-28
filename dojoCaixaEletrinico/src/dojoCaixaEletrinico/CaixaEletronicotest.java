@@ -36,9 +36,12 @@ public class CaixaEletronicotest {
 	
 	@Test
 	public void testNumeroDeCedulas500(){
-		int resultadoTeste = CaixaEletronico.NumeroCedulas(500);//2 de 100 + 1 de 50 + 1 de 20 + 1 de 10
-		assertEquals(5, resultadoTeste);
-}
+		Map<String, Object> resultado = CaixaEletronico.SaquePossivelEQtdCedulas(500);//2 de 100 + 1 de 50 + 1 de 20 + 1 de 10
+		boolean saqueValido = (boolean) resultado.get("valido");
+		int numCedulas = (int) resultado.get("numCedulas");
+		assertEquals(true, saqueValido);
+		assertEquals(5, numCedulas);
+	}
 	@Test
 	public void testNumeroDeCedulas550(){
 		Map<String, Object> resultado = CaixaEletronico.SaquePossivelEQtdCedulas(550);//2 de 100 + 1 de 50 + 1 de 20 + 1 de 10
