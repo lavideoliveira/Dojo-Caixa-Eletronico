@@ -7,36 +7,71 @@ import java.util.Map;
 import org.junit.Test;
 
 public class CaixaEletronicotest {
+	
+	
+	@Test
+	public void testNumeroDeCedulas5(){
+		Map<String, Object> resultado = CaixaEletronico.SaquePossivelEQtdCedulas(5);
+		boolean saqueValido = (boolean) resultado.get("valido");
+		int numCedulas = (int) resultado.get("numCedulas");
+		assertEquals(false, saqueValido);
+		assertEquals(0, numCedulas);
+	}
+	@Test
+	public void testNumeroDeCedulas52(){
+		Map<String, Object> resultado = CaixaEletronico.SaquePossivelEQtdCedulas(52);
+		boolean saqueValido = (boolean) resultado.get("valido");
+		int numCedulas = (int) resultado.get("numCedulas");
+		assertEquals(false, saqueValido);
+		assertEquals(0, numCedulas);
+	}
+	@Test
+	public void testNumeroDeCedulas55(){
+		Map<String, Object> resultado = CaixaEletronico.SaquePossivelEQtdCedulas(55);
+		boolean saqueValido = (boolean) resultado.get("valido");
+		int numCedulas = (int) resultado.get("numCedulas");
+		assertEquals(false, saqueValido);
+		assertEquals(0, numCedulas);
+	}
 
 	@Test
-	public void testSaquePossivel2() {
-		boolean resultadoTeste = CaixaEletronico.Saque(2);
-		assertEquals(false, resultadoTeste);
-		
+	public void testNumeroDeCedulas2(){
+		Map<String, Object> resultado = CaixaEletronico.SaquePossivelEQtdCedulas(2);
+		boolean saqueValido = (boolean) resultado.get("valido");
+		int numCedulas = (int) resultado.get("numCedulas");
+		assertEquals(false, saqueValido);
+		assertEquals(0, numCedulas);
 	}
 	
 	@Test
-	public void testSaquePossivel10() {
-		boolean resultadoTeste = CaixaEletronico.Saque(10);
-		assertEquals(true, resultadoTeste);
-		
+	public void testNumeroDeCedulas10(){
+		Map<String, Object> resultado = CaixaEletronico.SaquePossivelEQtdCedulas(10);
+		boolean saqueValido = (boolean) resultado.get("valido");
+		int numCedulas = (int) resultado.get("numCedulas");
+		assertEquals(true, saqueValido);
+		assertEquals(1, numCedulas);
 	}
 	
 	@Test
-	public void testSaquePossivel555() {
-		boolean resultadoTeste = CaixaEletronico.Saque(555);
-		assertEquals(false, resultadoTeste);
-		
+	public void testNumeroDeCedulas555(){
+		Map<String, Object> resultado = CaixaEletronico.SaquePossivelEQtdCedulas(555);
+		boolean saqueValido = (boolean) resultado.get("valido");
+		int numCedulas = (int) resultado.get("numCedulas");
+		assertEquals(false, saqueValido);
+		assertEquals(0, numCedulas);
 	}
 	@Test
 	public void testNumeroDeCedulas280(){
-		int resultadoTeste = CaixaEletronico.NumeroCedulas(280);//2 de 100 + 1 de 50 + 1 de 20 + 1 de 10
-		assertEquals(5, resultadoTeste);
-}
+		Map<String, Object> resultado = CaixaEletronico.SaquePossivelEQtdCedulas(280);
+		boolean saqueValido = (boolean) resultado.get("valido");
+		int numCedulas = (int) resultado.get("numCedulas");
+		assertEquals(true, saqueValido);
+		assertEquals(5, numCedulas);
+	}
 	
 	@Test
 	public void testNumeroDeCedulas500(){
-		Map<String, Object> resultado = CaixaEletronico.SaquePossivelEQtdCedulas(500);//2 de 100 + 1 de 50 + 1 de 20 + 1 de 10
+		Map<String, Object> resultado = CaixaEletronico.SaquePossivelEQtdCedulas(500);
 		boolean saqueValido = (boolean) resultado.get("valido");
 		int numCedulas = (int) resultado.get("numCedulas");
 		assertEquals(true, saqueValido);
@@ -44,31 +79,26 @@ public class CaixaEletronicotest {
 	}
 	@Test
 	public void testNumeroDeCedulas550(){
-		Map<String, Object> resultado = CaixaEletronico.SaquePossivelEQtdCedulas(550);//2 de 100 + 1 de 50 + 1 de 20 + 1 de 10
+		Map<String, Object> resultado = CaixaEletronico.SaquePossivelEQtdCedulas(550);
 		boolean saqueValido = (boolean) resultado.get("valido");
 		int numCedulas = (int) resultado.get("numCedulas");
 		assertEquals(true, saqueValido);
 		assertEquals(6, numCedulas);
 	}
-	
-//	@Test
-//	public void testNumeroDeCedulas255(){
-//		boolean resultadoTeste = CaixaEletronico.SaquePossivelEQtdCedulas(255);
-//		assertEquals(false, resultadoTeste);
-//	}	
-//		@Test
-//		public void testNumeroDeCedulas251(){
-//			boolean resultadoTeste = CaixaEletronico.SaquePossivelEQtdCedulas(251);
-//			assertEquals(false, resultadoTeste);
-//	}
-	@Test 
+	@Test
 	public void testNumeroDeCedulas100(){
-		int resultadoTeste = CaixaEletronico.NumeroCedulas(100);
-		assertEquals(1, resultadoTeste);
+		Map<String, Object> resultado = CaixaEletronico.SaquePossivelEQtdCedulas(100);
+		boolean saqueValido = (boolean) resultado.get("valido");
+		int numCedulas = (int) resultado.get("numCedulas");
+		assertEquals(true, saqueValido);
+		assertEquals(1, numCedulas);
 	}
-	@Test 
+	@Test
 	public void testNumeroDeCedulas200(){
-		int resultadoTeste = CaixaEletronico.NumeroCedulas(200);
-		assertEquals(2, resultadoTeste);
+		Map<String, Object> resultado = CaixaEletronico.SaquePossivelEQtdCedulas(200);
+		boolean saqueValido = (boolean) resultado.get("valido");
+		int numCedulas = (int) resultado.get("numCedulas");
+		assertEquals(true, saqueValido);
+		assertEquals(2, numCedulas);
 	}
 }

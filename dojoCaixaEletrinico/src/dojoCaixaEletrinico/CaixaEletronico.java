@@ -5,7 +5,7 @@ import java.util.Map;
 
 public class CaixaEletronico {
 
-	public static boolean Saque(int valor) {
+	public static boolean SaqueValido(int valor) {
 		if (valor % 10 == 0) {
 			return true;
 		}
@@ -26,17 +26,14 @@ public class CaixaEletronico {
 		return contador;
 		
 		
-	}
-	
-	
-
-	
+	}	
 	
 	public static Map<String, Object> SaquePossivelEQtdCedulas(int valor) {
 		Map <String, Object> result = new HashMap<String, Object>();
-		boolean resultadoTeste = CaixaEletronico.Saque(valor);
-		int resultado = CaixaEletronico.NumeroCedulas(valor);
-		result.put("valido", resultadoTeste);
+		boolean saqueEhValido = CaixaEletronico.SaqueValido(valor);
+		int resultado = 0;
+		if (saqueEhValido) resultado = CaixaEletronico.NumeroCedulas(valor);
+		result.put("valido", saqueEhValido);
 		result.put("numCedulas", resultado);
 		return result;
 	}
